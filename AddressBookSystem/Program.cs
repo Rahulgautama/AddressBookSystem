@@ -33,7 +33,7 @@ namespace AddressBookSystem
                 Console.WriteLine("=========");
                 Console.WriteLine("A - Add an Address");
                 //Console.WriteLine("D - Delete an Address");
-                //Console.WriteLine("E - Edit an Address");
+                Console.WriteLine("E - Edit an Address");
                 //Console.WriteLine("L - List All Addresses");
                 Console.WriteLine("Q - Quit");
             }
@@ -75,7 +75,22 @@ namespace AddressBookSystem
                             Console.WriteLine("An address is already on file for {0}.", firstName);
                         }
                         break;
-                    
+                    case "E":
+                        Console.WriteLine("Enter First Name to Edit: ");
+                        firstName = Console.ReadLine();
+                        Address addr = book.find(firstName);
+                        if (addr == null)
+                        {
+                            Console.WriteLine("Address for {0} count not be found.", firstName);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Enter new Address: ");
+                            addr.address = Console.ReadLine();
+                            Console.WriteLine("Address updated for {0}", firstName);
+                        }
+                        break;
+
                 }
             }
         }
